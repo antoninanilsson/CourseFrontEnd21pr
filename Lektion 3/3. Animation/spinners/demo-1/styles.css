@@ -1,0 +1,21 @@
+.loader{
+    width: 100px;
+    height: 100px;
+    /* cirkle */
+    border-radius: 50%;
+
+    /* på alla sidor transparent */
+    border:15px solid transparent;
+    /* byter ut på höger sida mot rött och på vänster mot grönt*/
+    border-bottom: 15px solid #05a112;
+    border-right: 15px solid red;
+
+
+/*  allt kan skrivas på en rad */
+    animation:spinner 2s linear infinite;
+    
+}
+@keyframes spinner{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}

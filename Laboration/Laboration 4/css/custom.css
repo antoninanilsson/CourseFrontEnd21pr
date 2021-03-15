@@ -1,0 +1,66 @@
+:root{
+    --min-färg: #420834;
+    --min-färg-hover: #3d0931;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #eeeeee;
+    /* bokstäver color */
+    color: #111;
+    /* bakgrundbilden */
+    background-image:url('../img/backgrund.jpg') ;
+    /* default värde */
+    background-repeat:repeat;
+    /* plats för navigeringen */
+    padding-top: 3rem; 
+    /* plats för footbar */
+    padding-bottom: 3rem;
+  }
+/* skriva äver färg från bootstrap */
+.bg-primary{
+    background-color: darkslategray ! important;
+}
+/* bakgeunden inte uppreppas, och fixed till sidans topp   */
+.mainheader-dinner{
+    background: url('../img/dinner.jpg') no-repeat fixed;
+    
+}
+.mainheader-contact{
+    background: url('../img/kontakt.jpg') no-repeat fixed;
+    
+}
+.mainheader{
+    /* bhöjd 30% view port */
+    height: 30vh;
+    /* bilden tar hela bredden av container, dvs 30% höjd och hela bredden*/
+    background-size: cover;
+}
+
+
+.logo{
+    font-size: 2rem;
+    color:#eee;
+}
+/* höjd av nav */
+.fix{
+    margin-top: 74px;
+}
+/* Karusell inställningar */
+/* margin uder karusellen */
+
+.carousel{
+margin-bottom: 4rem;
+}
+
+/* bildens höjd */
+.carousel-item,
+.carousel-item img
+{
+    /* height: calc(100vh - 74px); */
+    height: 25rem;
+    object-fit: cover ;
+    object-position: center;
+}
+
+
+

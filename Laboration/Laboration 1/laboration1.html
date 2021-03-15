@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboration1</title>
+    <link rel="stylesheet" href="default1.css">
+    <link rel="stylesheet" href="style1.css" >   
+</head>
+<body>
+    <div class="container-center">
+        <div class="border">
+        <header>
+            <h1>Laboration 1 Lektion 1</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Laboration 1</a></li>
+                    <li><a href="../Laboration 2/laboration2.html">Laboration 2</a></li>
+                    <!-- <li><a href="../index.html">Hem</a></li> -->
+                </ul>
+            </nav>
+            
+        </header>
+        <!--main är unik del av dokument och bara en i dokument, sektion är del avdokument och kan vara flera     -->
+        <main id="main">
+            <h3>Registrering <span class="important">formulär</span> som alltid ligger centralt</h3>
+            <!-- action where to send data -->
+            <!-- method get för icke koddad data -->
+            <form action="laboration1.html" method="get">
+                <h4>Skapa en ny användare</h4>
+                <!-- fieldset att gruppera tillsammans alla -->
+                <fieldset>
+                    <!-- gruppens namn -->
+                    <!-- tabindex positiv tal för ordning TAB knapp, -1 att aldrig gå i fältet -->
+                    <legend>Information om användare</legend>
+                    <p>
+                        <label for="firstName">*Namn </label>
+                        <input required tabindex="1" type="text" name="firstName" id="firstName" placeholder="Ditt Namn">
+                    </p>
+                    <p>
+                        <label for="lastName">*Efternamn </label>
+                        <input required tabindex="2" type="text" name="lastName" id="lastName" placeholder="Ditt Efternamn" >
+                    </p>
+                    <p>
+                        <label for="userEmail">*Email </label>
+                        <input required tabindex="3" type="email" name="userEmail" id="userEmail" placeholder="E-mail" >
+                    </p>
+                    <p>
+                        
+                        <!-- datatyp telefon nummer -->
+                        <label for="userPhone">*Telefonnummer</label>
+                        <input required tabindex="4" type="tel" name="userPhone" id="userPhone" pattern="\d{10}">
+                    </p>
+                    <p>    
+                        <!-- datatyp radio, att välja en av flera. Obs! name ska vara samma -->
+                        <label></label>
+                        <input checked tabindex="5" type="radio" name="phoneType" id="homePhone" value="home">
+                        <label for="homePhone">Hem</label>
+                        
+                        <input tabindex="6" type="radio" name="phoneType" id="cellPhone" value="cell">
+                        <label for="cellPhone">Mobil</label>
+                        
+                        <input tabindex="7" type="radio" name="phoneType" id="workPhone" value="work">
+                        <label for="workPhone">Arbete</label>
+                    </p>
+                    <p>
+                        <label for="userPassword">*Lösenord </label>
+                        <input required tabindex="8" type="password" name="userPassword" id="userPassword" placeholder="Skapa ditt Lösenord" minlength="6" maxlength="12">
+                    </p>    
+                    <p>
+                        <!-- Check boxes använs att skicka några val med samma variable namn i detta fall okContact -->
+                        <label for="">OK kontakta mig:</label>
+                        <label for="contactEmail">via Email</label>
+                        <input tabindex="9"type="checkbox" name="okContact" id="contactEmail" value="email">
+                        <label for="contactPhone">via Telefon</label>
+                        <input tabindex="10"type="checkbox" name="okContact" id="contactPhone" value="phone">
+                    </p>    
+                </fieldset>
+                <br>
+                <fieldset>
+                    <legend>Meddelande</legend>
+                    <p>
+                        <label for="extraInfo">Information:</label> <br>
+                        <textarea tabindex="11" name="extraInfo" id="extraInfo" cols="30" rows="3"></textarea><br>
+                        <!-- det finns options for flerval multiple, size för max antal items i listan som visas, optgroup för gruppering av items i listan -->
+                        <label for="infoType">Typ av information</label><br>
+                        <select tabindex="12" name="infoType" id="infoType">
+                            <option value="" selected disabled></option>
+                            <option value="1">Allmän information</option>
+                            <option value="2">Förslag</option>
+                            <option value="3">Fråga</option>
+                        </select>
+                </p> 
+                </fieldset>
+                <!-- info i value som skickas ihop med ifyllda fälten -->
+                <input type="hidden" name="source" value="formLab1"><br>
+                <!-- value texten som visas på knappen   -->
+                <!-- <input type="submit" value="Skicka"> -->
+                <button tabindex="13" type="submit">Skicka</button>
+            </form>   
+        </main>
+        <footer>
+            &copy;Copyright 2021, <abbr title="Dalarna, region Norr">Bjursås</abbr>
+        </footerass=>
+    </div>
+    </div>
+</body>
+</html>

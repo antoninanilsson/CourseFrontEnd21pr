@@ -1,0 +1,154 @@
+:root{
+    --min-text-color: rgb(74, 74, 74);
+    --min-text-color-hover: #3d0931;
+    --min-backround-color:#eeeeee;
+    --min-border-color:#cecece;
+}
+
+.container {
+    max-width: 540px;
+    color:var(--min-text-color);
+    background-color:var(--min-backround-color);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.item{
+   padding-top: 1rem;
+    
+}
+/* flexbox för många bilder */
+.flex {
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+/* bilder -------------- */
+img {
+    padding-top: 1rem;
+    width: 100%;
+}
+figcaption {
+    font-size: 0.7rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-style: italic;
+}
+/* List med länkar */
+#links ul{
+    list-style-type: none;
+    
+}
+
+#links ul li a {
+    text-decoration: none;  
+   
+}
+#links ul li a:visited{
+    color: var(--min-text-color);
+}
+#links ul li a:hover {
+    color:var(--min-text-color-hover);  
+   
+}
+
+/* positionera bilder in artwork ---------------------------*/
+#bildblock-1 {
+    flex:1;
+    order:1;
+    width: 100%;
+
+}
+#bildblock-2{
+    flex:1;
+    order:2;
+    width: 100%;
+}
+/* grid delar ----------------------------------------------*/
+#portret {
+    grid-area: portret;
+}
+#about{
+    grid-area: about;
+}
+#spacepromenad{
+    grid-area:spacepromenad;
+}
+#artwork{
+    grid-area:artwork;
+}
+#film {
+    grid-area:film;
+}
+#links{
+    grid-area:links;
+}
+.grid{
+    position: relative;
+    display: grid;
+    grid-auto-rows: min(100px, auto);
+    grid-template-areas: 
+    "portret"
+    "about"
+    "spacepromenad"
+    "film"
+    "artwork"
+    "links";
+
+}
+/* större media ---------------------------------------------------------*/
+@media(min-width:768px){
+    body {
+        background-image: url('../img/Pattern.jpg');
+        
+    }
+    .container {
+        /* max-width: 720px; */
+        max-width:1000px;
+    }
+    #portret img{
+        max-width: 960px;
+    }
+    #portret{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .grid{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "portret   portret"
+        "about     about"
+        "spacepromenad film"  
+        "artwork    artwork"
+        "links links";
+    }
+    .item {
+       padding:1rem;
+        
+    }
+    #artwork{
+        padding:0;
+        
+    }
+    #bildblock-1, #bildblock-2{
+        padding:1rem;
+    }
+    #artwork>h3{padding-left:1rem;}
+
+    .flex {
+        flex-direction: row;
+    }
+    #links ul li{
+        float:left;
+        
+        
+    }
+    #links ul li a {
+        display: block;
+        padding-right: 1rem;  
+        
+       
+    }
+   
+
+}    

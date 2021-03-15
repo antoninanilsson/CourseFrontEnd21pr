@@ -1,0 +1,94 @@
+
+.html {
+    scroll-behavior: smooth;
+}
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.top{
+    background-color: #333;
+    color: #fff;
+    padding: 5rem;
+}
+.navbar{
+    background-color: peachpuff;
+    /* att göra att elementet är kvar på sidanäven när vi skrollar neråt */
+    position: sticky;
+    top:0;
+    /* placera i övre lager på bilden */
+    z-index:5;
+    height: 4rem;
+}
+/* position relativ navbar, för att den är sticky (ej static). */
+.navbar h1{
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    /* placera centralt i y-led, kompencera egen höjd */
+    transform: translateY(-50%);
+}
+/* listan med meny */
+/* position relativ navbar, för att den är sticky (ej static). */
+.navbar div{
+    position:absolute;
+    top:50%;
+    right:2rem;
+    transform: translateY(-50%);
+} 
+
+.container{
+    width: 80%;
+    margin:auto;
+}
+.square{
+    border:1px solid black;
+    height: 200px;
+    width: 200px;
+    margin-top: 5rem;
+    /* position relativ elementets normala positon. Så square tar default plats i container  */
+    position:relative;   
+    z-index: -50;  
+
+}
+.ball{
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* ball psitioneras relativ square, som är första icke sticky förföräldrar */
+    position: absolute;
+    
+    /* korrektion av position  mot elementets centrum instället för top vänster hörn*/
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left:50%; 
+
+}
+/* positioneras relativt body, för att den inte har några föräldrar */
+#top{
+    position:absolute;
+    top: 0;
+    
+}
+
+.btn{
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    position:fixed;
+    /* relativt body sitter alltid på samma plats i browser*/
+    top:80%;
+    right: 0;
+    /* inga hyperlänk understrickning */
+    text-decoration: none;
+}
+/* .popup {
+    background-color: grey;
+    position:fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+} */
+

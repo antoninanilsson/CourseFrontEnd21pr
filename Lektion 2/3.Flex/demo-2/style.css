@@ -1,0 +1,15 @@
+@import "../default.css";
+
+/* detta behövs för att centrera formulär */
+.container-center {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+/* centrera texten i sidled */
+.text-center {
+    text-align: center;
+}

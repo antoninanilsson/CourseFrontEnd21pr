@@ -1,0 +1,41 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.box{
+    border: 1px solid black;
+    padding: 2rem;
+    float:left;
+    /* box ska ta 173 del av bredden var */
+    width:33.3%;
+
+}
+/* på vilka sidor av element är floating elements inte tillåtna*/
+.clr{
+    clear: both;
+}
+#section-2{
+    margin-top: 2rem;
+}
+.main{
+    border: 1px solid black;
+    /* top/bottom  left/right */
+    padding:3rem 1rem;
+    /* main till vänster, övriga till häger */
+    float: left;
+    width: 70%;
+}
+#section-2 aside{
+    background-color: #333;
+    color: #fff;
+    width:30%;
+    /* aside till höger, övriga elemet till vänster */
+    float: right;
+}
+#section-2 li{
+    /* list-style-type utan marker (cifra, bokstav mm) */
+    list-style: none;
+    padding: 1rem 3rem;
+}

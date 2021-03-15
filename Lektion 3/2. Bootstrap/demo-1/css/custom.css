@@ -1,0 +1,38 @@
+/* skapa egen färgtema . Här får man byta färger , så att det inte behövs gå och ändra i varje class*/
+:root{
+    --min-färg: #420834;
+    --min-färg-hover: #3d0931;
+
+}
+/* färg för nav, skriva över bootsrap färg */
+.bg-info {
+    background-color: darkslategray !important;
+  }
+  /* ta hänsin till nav, höjd = 39.9 + 8 (padding top) +8 (padding bottom)= 56px  får vi från inspect */
+  /* fråga inte täcker hela yta ???? */
+  .carousel-item,
+  .carousel-item img
+  {
+      height: calc(100vh - 56px);
+      object-fit: cover ;
+      object-position: center;
+  }
+  .btn-info{
+      background-color: darkslategray !important;
+      color:white;
+      border-color: darkslategray;
+  }
+  .btn-info:hover {
+    color: #fff;
+    background-color:darkslategray;
+    border-color: darkslategray;
+  }
+  /* använda sina egna färger */
+  .btn-min {
+    color: #fff;
+    background-color: var(--min-färg);
+  }
+  .btn-min:hover {
+    color: #fff;
+    background-color: var(--min-färg-hover);
+  }

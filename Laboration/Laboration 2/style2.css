@@ -1,0 +1,76 @@
+
+#main {
+   
+    /* bredd av area med kontent relativt hela bredden men inte större än 500px*/
+    width:minmax(60%,500px);
+    /* Element tar 60€, margin fördelar lika på bägge sidor  */
+    margin: auto;
+        
+}
+/*list utan punkter */
+ul{
+    list-style-type:none;
+}
+/* fielset */
+fieldset{
+    border-color: cadetblue;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 7px;
+    padding: 1rem;
+    
+}
+fieldset>legend{
+    color: cadetblue;
+}
+
+p>label{
+    color:darkslategray ;
+}
+input[type="text"], 
+input[type="tel"],
+input[type="email"],
+textarea{
+    border-radius:7px;
+}
+/* validering input */
+input:valid{
+    border-color: green;
+}
+input:invalid{
+    border-color: red;
+}
+input:focus:invalid{
+    border-color: black;
+}
+
+
+footer{
+    font-size: 0.7rem;
+    padding-top: 1rem;
+}
+p>label{
+    display:block ;
+}
+header{
+    display:none;
+}
+#Meddelande{
+    display: none;
+}
+
+/* media queries */
+
+@media(min-width:500px)
+{
+    p>label{
+        display:inline ;
+    }
+    header{
+        display: block;
+    }
+    #Meddelande {
+        display:block;
+    }
+}
+/* Det är att  ha label ovanför input*/

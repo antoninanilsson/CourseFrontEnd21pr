@@ -1,0 +1,25 @@
+/* fil med stylning */
+/* färg kan vara rgb, #hexadecimal, hsl, rgba. Läraren tipsar om använda hexadecimal */
+/* stylning av diverse element typer */
+h1 {
+    color:blue;
+
+}
+small{
+    color:#8a2be2;
+}
+p {
+    color:cornflowerblue;
+}
+/* stylning av class */
+.post{
+    /* #333 motsvarar #333333 */
+    background:#333;
+}
+/* stylning av element p i class .post, class .sm */
+.post p, .sm {
+    color:crimson;
+}
+.big {
+    font: large;
+}

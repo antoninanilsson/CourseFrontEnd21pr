@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.item{
+    background-color: #a9c7df;
+    border: 1px dotted #333;
+    padding: 1rem;
+}
+/* färgar fördelas enligt ordning i HTML  */
+.item:nth-child(even){
+    background-color: #d7dce0;
+}
+
+/* ge namn till diverse element som de kommer att ha i griden */
+header{
+    grid-area: header;
+
+}
+nav {grid-area: nav;}
+/* element helt raderad, visas inte */
+aside {grid-area: aside; display:none;} 
+main {grid-area: main;}
+footer {grid-area:footer;}
+
+.grid{
+    display:grid;
+    grid-auto-rows: minmax(100px,auto);
+    /* listan med areas som visas i grid */
+    grid-template-areas: 
+    "header"
+    "nav"
+    "main"
+    "footer";
+}
+@media(min-width:850px){
+    .item{
+        background-color: lawngreen;
+        border:1px dotted #333 ;
+        padding: 1rem;
+    }
+}
+@media(min-width:768px){
+    aside{
+        display:block;
+    }
+    .grid{
+        grid-template-areas:
+        "header    header"
+        "nav       nav"
+        "main      aside"
+        "main      aside"
+        "footer    footer"
+        ;
+    }
+}
+@media(min-width:992px){
+    .grid{
+        /* 2 kolumner en 5 delar och annan 1 del */
+        grid-template-columns: 5fr 1fr;
+        grid-template-areas:
+        "header    header"
+        "nav       nav"
+        "main      aside"
+        "main      aside"
+        "footer    footer"
+        ;
+    }
+}
