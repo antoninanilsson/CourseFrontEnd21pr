@@ -36,3 +36,5 @@ user.email='j.w.@email.com'
 
 let {firstName:name, age,address:{city}}=user;
 console.log(`Jag heter ${name} är ${age} och bor i ${city} `);
+console.log(firstName:name);
+console.log(city);

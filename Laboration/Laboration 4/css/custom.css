@@ -8,7 +8,8 @@ body {
     /* bokstäver color */
     color: #111;
     /* bakgrundbilden */
-    background-image:url('../img/backgrund.jpg') ;
+    /* background-image:url('../img/backgrund.jpg') ; */
+    background-image: url('../img/MicrosoftTeams-image.png');
     /* default värde */
     background-repeat:repeat;
     /* plats för navigeringen */
