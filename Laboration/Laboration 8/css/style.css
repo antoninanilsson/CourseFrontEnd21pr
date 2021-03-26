@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    
+
+}
+:root {
+    --my-color-form: cornsilk;
+    --my-color-form-text: #351604;
+    --my-color-header:#666462;
+
+    --my-color-btn: rgb(201, 200, 185);
+    --my-color-btn-hover: #666462;
+
+    --my-color-error: rgb(209, 53, 26);
+    --my-color-ok:rgb(74, 190, 74);
+
+    --my-fontsize-input:1.2rem;
+    --my-fontsize-error:0.7rem;
+    --my-fontsize-btn:1.2rem;
+  
+
+}
+
+body {
+    background-image: url('../img/Body_background.jpg');
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.container{
+    
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.form{
+    background-color: var( --my-color-form);
+    color: var(--my-color-form-text);  
+    border-radius: 1rem;
+    min-width: 350px;
+   
+}    
+.formHeader {
+    background-color: var(--my-color-header);
+    color: var(--my-color-form);
+    border-radius: 1rem 1rem  0 0 ;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.7rem;
+}
+.formBody{
+    padding: 1rem;
+    
+}
+
+.input-group,
+.input-group-check {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    
+}
+
+.input-control{
+    border-radius: 0.3rem;
+    border: 0.05rem solid var(--my-color-form-text);
+    color: var(--my-color-form-text);
+    font-size: var(--my-fontsize-input);
+    padding:0.3rem;
+   
+}
+
+.input-group .input-control,
+.input-group .errorMsg {
+    display: block;
+    width: 100%;  
+}
+
+/* submit knapp ------------------------------------------- */
+.btn-submit{
+    background-color: var(--my-color-btn);
+    color: var(--my-color-form-text);
+    font-size: var(--my-fontsize-btn);
+    padding: 0.5rem;
+    
+    border:none;
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 0.3rem;  
+
+}
+.btn-submit:hover{
+    background-color: var(--my-color-btn-hover);
+    color:var(--my-color-form);
+}
+
+/* --Formatering av symboler ------------------------------ */
+
+/* Formatering av figurer */
+.bi-exclamation-circle-fill{
+    position: absolute;
+    right: 0.5rem;
+    top:calc(50% - var(--my-fontsize-input)/2);
+    color:var(--my-color-error);
+    visibility: hidden; 
+}
+
+.bi-check-circle-fill{
+    position: absolute;
+    right: 0.5rem;
+    top:calc(50% - var(--my-fontsize-input)/2);
+    color:var(--my-color-ok);
+    visibility: hidden;
+    
+}
+
+/* Formatering av Felmeddelande ------------------------------ */
+.input-group .errorMsg,
+.input-group-check .errorMsg {
+    font-size: var(--my-fontsize-error);
+    color: var(--my-color-error);
+    visibility: hidden;
+}
+
+/* Arbete med fel och check ----------------------------------*/
+
+/* visa error */
+.error .input-control {
+    
+    outline: 2px solid var(--my-color-error);
+    
+}
+.error .bi-exclamation-circle-fill,
+.error .errorMsg {
+    visibility: visible;
+}
+/* visa check */
+.checked .input-control {
+    outline: 2px solid var(--my-color-ok);
+     
+}
+.checked .bi-check-circle-fill{
+    visibility: visible;
+}
+
+
+

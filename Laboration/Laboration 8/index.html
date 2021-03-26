@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboration 8</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <form action="" method="get" id="regForm" class="form">
+            <div class="formHeader">
+                <p>Registrering av en ny användare</p>
+            </div>
+            <div class="formBody">
+                <!-- Firstname -->
+                <div class="input-group" id="inpGrpFirstName">
+                    <label for="firstName" >Förnamn*</label>
+                    <input type="text" class="input-control " name="firstName" id="firstName"  placeholder="Ditt namn">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <i class="bi bi-check-circle-fill"></i>
+                    <p class="errorMsg">Fellmeddelande</p>
+                </div>
+                <!-- Lastname -->
+                <div class="input-group" id="inpGrpLastName"> 
+                    <label for="lastName" >Efternamn*</label>
+                    <input type="text" class="input-control" name="lastName" id="lastName"  placeholder="Ditt efternamn">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <i class="bi bi-check-circle-fill"></i>
+                    <p class="errorMsg">Fellmeddelande</p>
+                </div>   
+                <!-- email -->
+                <div class="input-group" id="inpGrpEmail">
+                    <label for="email">Email*</label>
+                    <input type="email" class="input-control " name="email" id="email" placeholder="Ditt email">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <i class="bi bi-check-circle-fill"></i>
+                    <p class="errorMsg">Fellmeddelande</p>
+                </div>
+                <!-- password -->
+                <div class="input-group" id="inpGrpPassword">
+                    <label for="password">Lösenord (minimum 6 symboler och en siffra) *</label>
+                    <input type="password" class="input-control " name="password" id="password" placeholder="Välj lösenord">
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <i class="bi bi-check-circle-fill"></i>
+                    <p class="errorMsg">Fellmeddelande</p>
+                </div>
+                <!-- Recepie type -->
+                <div class="input-group" id="inpGrpRecipieType">
+                    <label for="recepieType">Typ av recept att prenumerera:*</label> 
+                    <select class="input-control" name="recepieType" id="recepieType" >
+                        <option value=0 >Välj typ...</option>
+                        <option value=1>Alla typer</option>
+                        <option value=2>Vegetariska</option>
+                        <option value=3>Veganska</option>
+                        <option value=4>Mjöklfria</option>
+                        <option value=5>Glutenfria</option>
+                        <option value=99>Övriga </option>
+                    </select>  
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <i class="bi bi-check-circle-fill"></i>
+                    <p class="errorMsg">Fellmeddelande</p>
+                </div>
+                <!-- Accept conditions -->
+                <div class="input-group-check" id="inpGrpAccept">
+                    <!-- <div class="checkbox-line"> -->
+                        <input class="input-control" type="checkbox" name="accept" id="accept">
+                        <label for="accept" >Acceptera våra villkor om datalagring *</label>
+                    <!-- </div> -->
+                    <i class="bi bi-exclamation-circle-fill"></i>
+                    <i class="bi bi-check-circle-fill"></i>
+                    <p class="errorMsg">Fellmeddelande</p>
+                </div>
+                <!-- submit -->
+                <div class="input-group">
+                    <button type="submit" class="btn-submit">Registrera</button>
+                </div>  
+            </div>
+        </form>
+    </div>
+    <div style="height: 1500px;"></div>
+    <script src="./js/utils.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
