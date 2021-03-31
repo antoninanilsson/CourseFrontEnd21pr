@@ -7,12 +7,15 @@ const formatClock=()=>{
        clockWeek.innerText=myCurrentDate.weekString();
        clockDate.innerText=myCurrentDate.dateString(); 
        clockTime.innerText=myCurrentDate.timeString();
- }   
+       setTimeout(formatClock, 1000); //Kör samma funktion igen efter 1000ms
+};
+
+formatClock();
  
-setInterval(function(){
-    formatClock();
+// setInterval(function(){
+//     formatClock();
     
-},1000);
+// },1000);
 
 
 

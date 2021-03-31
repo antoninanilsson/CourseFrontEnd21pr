@@ -41,17 +41,24 @@ const validateEmail =(target)=>{
 const validatePassw =(target)=>{
     //console.log(target.value);
     // console.log(target);
+    let regEx=/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-Z0-9]{6,}$/
+
     if (target.value.trim()===''){
         showError(target,'Lösenordet ska vara ifylld');
         return false;
-    }else if(target.value.trim().length<6){    
-        showError(target,'Lösenordet ska vara minst 6 symboler långt');
-        return false;
-    }else if (!/\d/.test(target.value)) {
-        showError(target,'Lösenordet ska innehålla minst en siffra');
-        return false;
-    } else if (/\s/.test(target.value)) {
-        showError(target,'Lösenordet ska inte innehålla mellanslag');
+    }else if(!regEx.test(target.value)){    
+
+        if (target.value.trim().length<6 ){
+            showError(target,'Lösenordet ska vara minst 6 symboler');
+        }else if (!/[a-z]/.test(target.value) || !/[A-Z]/.test(target.value) ){
+            showError(target,'Lösenordet ska innehålla minst en stor och en liten bokstav');
+        } else if (!/\d/.test(target.value)){
+                showError(target,'Lösenordet ska innehålla minst en siffra');
+        }else{
+            showError(target,'Lösenordet ska inte innehålla annat än siffror och bokstäver');
+        }
+
+            
         return false;
     } else {
         hideError(target);
@@ -59,7 +66,6 @@ const validatePassw =(target)=>{
     }
 }   
 
-    
     
 
 const validateSelect =(target)=>{

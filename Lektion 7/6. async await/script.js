@@ -12,11 +12,8 @@ const getJson=async (url)=>{
     }
     const data=await res.json();
     // console.log(data);
-    const res2 = await fetch('todos.json');
-    const data2 = await res2.json();
-
-
-
+    // const res2 = await fetch('todos.json');
+    // const data2 = await res2.json();
 
     return data;
 }

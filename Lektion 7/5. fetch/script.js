@@ -1,4 +1,5 @@
-const test=fetch('user.json')
+// const test=
+    fetch('user.json')
     .then(res=>{
          return res.json();
 

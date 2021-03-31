@@ -36,3 +36,20 @@ const doSomeThing=(value)=>{
     http.send();
 })
 }
+// catch - fångar alla erros, then knuten till resolve och reject funktioner 
+// som vi anropar själva i objektet beroende på reultat av kod.
+getRequest('user.json')
+  .then(data => {
+    console.log(data);
+    return getRequest('todos.json');
+  })
+  .then(data => {
+    console.log(data);
+    return getRequest('todos2.json');
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(err => {
+    console.log(err);
+  })
