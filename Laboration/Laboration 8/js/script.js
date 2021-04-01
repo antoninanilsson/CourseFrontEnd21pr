@@ -36,29 +36,31 @@ const validateEmail =(target)=>{
 
 }
 
-  
+const passwordError = (password)=>{
+    let errorMessage='';
+
+    if (password.trim()===''){
+        errorMessage='Lösenordet ska vara ifylld';}
+    else if (password.trim().length<6 ){
+        errorMessage='Lösenordet ska vara minst 6 symboler';
+    }else if (!/[a-z]/.test(password) || !/[A-Z]/.test(password) ){
+        errorMessage='Lösenordet ska innehålla minst en stor och en liten bokstav';
+    } else if (!/\d/.test(password)){
+        errorMessage='Lösenordet ska innehålla minst en siffra';
+    }else{
+        errorMessage='Lösenordet ska inte innehålla annat än siffror och bokstäver';
+    }
+    return errorMessage;
+}  
 
 const validatePassw =(target)=>{
     //console.log(target.value);
     // console.log(target);
     let regEx=/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9])[a-zA-Z0-9]{6,}$/
-
-    if (target.value.trim()===''){
-        showError(target,'Lösenordet ska vara ifylld');
-        return false;
-    }else if(!regEx.test(target.value)){    
-
-        if (target.value.trim().length<6 ){
-            showError(target,'Lösenordet ska vara minst 6 symboler');
-        }else if (!/[a-z]/.test(target.value) || !/[A-Z]/.test(target.value) ){
-            showError(target,'Lösenordet ska innehålla minst en stor och en liten bokstav');
-        } else if (!/\d/.test(target.value)){
-                showError(target,'Lösenordet ska innehålla minst en siffra');
-        }else{
-            showError(target,'Lösenordet ska inte innehålla annat än siffror och bokstäver');
-        }
-
-            
+    if (!regEx.test(target.value)){
+        const errorMessage = passwordError(target.value);
+        showError(target, errorMessage);
+                 
         return false;
     } else {
         hideError(target);
@@ -157,7 +159,7 @@ regForm.addEventListener('submit', e => {
 
         }else{
             console.log('All is OK. Form is ready to send');
-            regForm.reset();
+            //regForm.reset();
             location.reload();
             
         }

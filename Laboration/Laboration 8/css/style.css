@@ -97,7 +97,11 @@ body {
 .btn-submit:hover{
     background-color: var(--my-color-btn-hover);
     color:var(--my-color-form);
+    border:none;
 }
+/* .btn-submit:focus{
+    border: none;
+} */
 
 /* --Formatering av symboler ------------------------------ */
 
@@ -139,6 +143,18 @@ body {
 .error .errorMsg {
     visibility: visible;
 }
+
+.error select,
+.checked select {
+appearance: none;
+}
+
+.error input::-ms-reveal{
+/* .checked input::-ms-clear { */
+display: none;
+}
+
+
 /* visa check */
 .checked .input-control {
     outline: 2px solid var(--my-color-ok);
