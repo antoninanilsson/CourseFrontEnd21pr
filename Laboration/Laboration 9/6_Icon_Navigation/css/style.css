@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+:root {
+    --my-color-nav-text:#F7F7F6;    
+    --my-color-nav-backgrund:#456d23;
+
+    --my-color-nav-border:#456d23;
+    --my-color-nav-item:#77BB3F;
+    --my-color-nav-item-active: #666462;
+    --my-color-nav-item-hover:#304d1a;
+
+  
+   
+    --my-color-body:#F7F7F6;
+    --my-color-body-text:#351604;
+
+    --my-fontsize-icon:1.8rem;
+
+    --my-hight-nav:44px; /* 1+.7+.7=2.4 */   
+
+}
+body {
+    background-color: var(--my-color-body);  
+    color:var(--my-color-body-text); 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+
+}
+
+
+/* Mobile first ------------------------------------------------------------- */
+.header{
+    width:100%;
+    height: var(--my-hight-nav);
+    color: var(--my-color-nav-backgrund);
+    text-align: center;
+   
+}
+.container {
+    margin: auto;
+}
+/*menyer */
+.top-menu, .sub-menu {
+    /* ta bort punkter */
+    list-style-type: none;
+  
+}
+
+@media (max-width:991px) { 
+
+/* Plats för content , hela bredden för mobile */
+.container{
+    width: 100%;
+   
+    
+}
+
+/* Navigering */
+.top-nav {
+    
+    background-color: var(--my-color-nav-backgrund);
+    /* placerar längst nere på sidan */
+    position: fixed; 
+    bottom: 0;
+    width: 100%; 
+    border-top: 1px solid rgba(0,0,0,0.5);
+    color: var(--my-color-nav-text);
+}
+
+
+/* placerar 4 menuer i rad */
+.top-menu li{
+    float:left;
+    width: 25%;
+   
+}
+/* grundformattering element i meny */
+.top-menu li a {
+    /* klickbara hela sträckan av skärmet och tar hela av möjlig 25% skärm bredd*/
+    display:block;
+    height: 50px;
+    width: 100%;
+    /*  bilder för iconer formatering*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* auto - att anpassa rätt horis proportion mot fixerad höjd*/
+    background-size: auto 36px;
+    
+      
+}
+ /* bilder stoppa i , redigera till verkliga bilder */
+.top-menu li:nth-child(1) a { background-image: url(../img/Logo_transp_little.png);}
+.top-menu li:nth-child(2) a { background-image: url(../img/Logo_transp_little.png);}
+.top-menu li:nth-child(3) a { background-image: url(../img/Logo_transp_little.png);}
+.top-menu li:nth-child(4) a { background-image: url(../img/Logo_transp_little.png);}
+
+/* visa inte text top menu på små skärmar */
+.top-menu li a span{
+    display: none;
+}
+
+.sub-menu {
+    /* flytta ovanför top menu */
+    position: absolute;
+    
+    /* visa alltid ovanför allt */
+    z-index: 99;
+    left:0;
+    width: 100%;
+    /* transparent ovanför bilden */
+    background-color: rgba(0,0,0,0.5);
+}
+/* ta bort float , visa vertikalt */
+.sub-menu li {
+    float:none;
+    width:100%;
+}
+.sub-menu li a {
+    background-color: var(--my-color-nav-item);
+    color:var(--my-color-nav-text);
+    background-image: none !important;
+    text-decoration: none;
+    /* separera vertikalt för att kunna nå med finger */
+    height: auto;
+    padding: 0.7rem 0.4rem;
+    margin: 0.5rem 5%;
+    /* göra runda kanter med fina skuggar */
+    width: 90%;
+    border-radius: 5px;
+    box-shadow: 0 2px 1px rgba(0,0,0,0.5);
+}
+/* visa submenu */
+.top-menu li:hover .sub-menu{
+    bottom: 50px;
+   
+}    
+/* göra att markerad topmenu har samma färg som dess submenu */
+.top-menu li:hover a{
+    background-color: var(--my-color-nav-item);
+}
+/* göra att vi får mörkare färg på vald submenu item */
+.sub-menu li a:hover{
+    background-color: var(--my-color-nav-item-hover);
+}
+
+
+ 
+/* Skärmet >= 768 medium Obs! 540 small*/
+@media(min-width:768px)  {
+    .container{
+        width: 80%;
+        
+    }
+    .top-menu li a span{
+        display: block;
+        position: absolute;
+        bottom: 4px;
+        width: 100%;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+
+    }
+.top-menu li a{
+    text-decoration: none;
+    color: var(--my-color-nav-text);
+    position: relative;
+    background-size:auto 25px ;
+    background-position: center 6px ;
+
+    }
+}
+}
+@media(min-width:992px){
+    .container {
+        width:80%;
+        
+    }
+    .top-nav { 
+        position:sticky; 
+        top:0;
+        background-color: var(--my-color-nav-backgrund);  
+        color: var(--my-color-nav-text);
+       
+       
+    }
+ 
+   .top-menu li {
+        float: left;
+        border-left: 1px solid rgba(0,0,0,0.5);
+        width: 130px;
+
+   }
+   .top-menu li:nth-child(4) a{
+    border-right: 1px solid rgba(0,0,0,0.5);
+   }
+    
+   
+    .top-menu li a {
+
+        display: block;        
+        padding:0.7rem 0.9rem;
+        /* göra mjukare övergångar mellan ändring av färger */
+        transition:background 0.3s linear;
+        color: var(--my-color-nav-text);
+        
+        text-decoration: none;
+      
+                    
+    }   
+    .top-menu li a span{
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .sub-menu {
+        /* flytta från skärmet */
+        left:-999em;
+        z-index:99;
+        position: absolute;
+
+    }
+    .sub-menu li {
+        /* fixa att de placeras vertikalt */
+        float:none;
+        width: 130px;
+                
+    }
+    .sub-menu li a{
+
+        width: 100%;
+        border :none;
+        border-top: 1px solid var(--my-color-nav-border);
+    }
+    /* göra att markerad topmenu har samma färg som dess submenu */
+    .top-menu li:hover a{
+        background-color: var(--my-color-nav-item);
+    }
+    /* göra att vi får mörkare färg på vald submenu item */
+    .sub-menu li a:hover{
+        background-color: var(--my-color-nav-item-hover);
+    }
+
+    .top-menu li:hover .sub-menu{
+        /* visa på deras vanlig position */
+        left:auto;
+    }
+
+    .clearfix::after{
+        content:"";
+        display: table;
+        clear: both;
+    }
+}
