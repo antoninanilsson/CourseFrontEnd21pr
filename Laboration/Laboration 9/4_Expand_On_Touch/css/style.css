@@ -69,7 +69,7 @@ body {
     background-repeat: no-repeat;
     width: 72px;
     height: var(--my-hight-nav); 
-    background-size: 86%;
+    background-size: auto 36px;
     background-position: center center;
     border:none;
     outline: none;
