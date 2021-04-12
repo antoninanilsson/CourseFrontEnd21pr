@@ -1,9 +1,10 @@
 #ignorera en fil
+file_ignorera.txt
 log.txt
 #ignorera en mapp
-/mapp_ignorera
+mapp_ignorera/
 
 #ignorera alla filer med extantion
 *.tmp
-
+# ignorera mapparna 
 node_modules/
