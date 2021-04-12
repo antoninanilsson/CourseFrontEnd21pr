@@ -5,3 +5,5 @@ log.txt
 
 #ignorera alla filer med extantion
 *.tmp
+
+node_modules/

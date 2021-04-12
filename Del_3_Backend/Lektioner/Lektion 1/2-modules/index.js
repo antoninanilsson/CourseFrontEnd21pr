@@ -4,10 +4,11 @@
 
 const User=require('./user');
 const user1=new User('Joakim', 'Wahlström');
-usrer1.greet();
+user1.greet();
 
 // const names=require('./module');
-// console.log(names);
+// console.log(names.ages);
 
 const {names}=require('./module');
 console.log(names);
+// console.log(ages);
