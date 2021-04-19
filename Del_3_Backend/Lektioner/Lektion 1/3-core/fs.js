@@ -1,5 +1,5 @@
 const fs=require('fs');
-const { read } = require('node:fs');
+
 const path=require('path');
 
 // läsa fil asynkront: 
@@ -39,20 +39,30 @@ const path=require('path');
 
 // ----------------- KOLLA OM MAPP FINNS INNAN SKAPA NY ????
 
-// if (!fs.existsSync('./NyMapp')){
-//     fs.mkdir('./NyMapp',err=>{
-//         if (err)
-//         console.log(err);
-//         else 
-//         console.log('skapad');
-//     });
+// // if(!fs.existsSync('./NyMapp')) {
+//   fs.mkdir('./NyMapp', err => {
+//     if(err)
+//       console.log(err);
+//     else
+//       console.log('Mapp skapad')
+//   })
 // } else {
-//     fs.rmdir()
+//   fs.rmdir('./NyMapp', err => {
+//     if(err)
+//       console.log(err);
+//     else
+//       console.log('Mappen finns redan.. Tar bort den')
+//   })
 // }
 // -------------- TA BORT FILER ???
-// if (fs.existsSync('./mapp/text2.txt')) {
-//     fs.unlink('./mapp/text.txt',err)
-// }
+//if(fs.existsSync('./mapp/text2.txt')) {
+    //   fs.unlink('./mapp/text2.txt', err => {
+    //     if(err)
+    //       console.log(err)
+    //     else
+    //       console.log('Tar bort filen')
+    //   })
+    // }
 
 //--------- KOMBINERA PATH och FS
 // fs.appendFile(path.join(__dirname,'mapp','text.txt'),' ny lägger vi text igen',()=>{
@@ -62,8 +72,12 @@ const path=require('path');
 //---------- LÄSA SKRIVA STORA FILER (BUFFRA) ?????????????????????
 
 const readStream=fs.createReadStream('./mapp/stor.txt',{encoding:'utf8'});
-const writeStream=fs.createWrite
-readStream.on('data',buffer=>{
-    console.log('-----------------------NY DATA-------------------------------');
-    console.log(buffer);
-})
+const writeStream = fs.createWriteStream('./mapp/stor2.txt');
+// readStream.on('data', buffer => {
+//   // console.log('------------------------------------------------------- NY DATA -----------------------------------------------------------');
+//   // console.log(buffer);
+
+//   writeStream.write('\n ------------------------------------------------------- NY DATA ----------------------------------------------------------- \n')
+//   writeStream.write(buffer);
+// })
+readStream.pipe(writeStream);

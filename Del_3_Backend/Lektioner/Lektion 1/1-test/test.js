@@ -2,7 +2,7 @@ const hello=()=>{
     console.log('Hello World')
 }
 //hello();
-//console.log(global);
+console.log(global);
 
 // setTimeout(()=>
 // console.log('timeout'),3000)

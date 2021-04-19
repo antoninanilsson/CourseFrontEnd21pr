@@ -7,7 +7,7 @@ const PORT=process.env.PORT || 9999;
 app.listen(PORT,()=>console.log('server running att http://localhost:'+PORT))
 
 
-app.get('./',(req,res)=>{
+app.get('/',(req,res)=>{
     //res.send('<h1>home page<h1>');
     res.sendFile(path.join(__dirname,'views','index.html'));
 })

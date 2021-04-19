@@ -4,7 +4,13 @@ log.txt
 #ignorera en mapp
 mapp_ignorera/
 
-#ignorera alla filer med extantion
+#ignorera alla filer med extention
 *.tmp
-# ignorera mapparna 
+# ignorera mapparna med  node moduler
 node_modules/
+#mappar från Pluralsight kurser
+ngs/
+#mappar med Lektioner
+Lektioner/
+#filer med konfiguration
+.env

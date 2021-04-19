@@ -6,9 +6,9 @@ const User=require('./user');
 const user1=new User('Joakim', 'Wahlström');
 user1.greet();
 
-// const names=require('./module');
-// console.log(names.ages);
+ const name_age=require('./module');
+ console.log(name_age.ages);
 
-const {names}=require('./module');
+const {names,ages}=require('./module');
 console.log(names);
-// console.log(ages);
+console.log(ages);

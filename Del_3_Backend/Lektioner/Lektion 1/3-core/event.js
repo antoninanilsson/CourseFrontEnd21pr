@@ -11,7 +11,10 @@ const myEmitter=new Emitter()
 // myEmitter.on('hej',()=>console.log('Eventet kördes'));
 
 // myEmitter.emit('hej');
-myEmitter.on('greet' (data) => onsole.log('Hej'+data));
+//prenumerera på event greet, när event inträffar göra console.log
+myEmitter.on('greet', (data) => console.log('Hej '+data));
 
+// när vi kör metod greet , vi skickar data till metoden,
+// som sedan emiterar event greet med data i variable name
 myEmitter.greet('Joakim');
 myEmitter.greet('Hans');
