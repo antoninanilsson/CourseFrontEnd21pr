@@ -1,0 +1,639 @@
+{
+    
+    "openapi": "3.0.2",
+    "info": {
+      "title": "API Butique (Laboration 2)",
+      "description": "API for Children Closes On-Line Butique",
+      "version": "0.0.1"
+    },
+   
+    "paths": {
+        "/api/products":{
+            "get":{
+                "description":"List all products", 
+                "responses": {
+                    "200": {
+                        "description": "Successfully fetched all products from API Butique",
+                        "content": {
+                          "application/json": {
+                            "schema": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "_id": {
+                                       "type": "string"
+                                  },
+                                  "artnumber": {
+                                    "type": "string"
+                                  },
+                                  "category": {
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "desc": {
+                                    "type": "string"
+                                  },
+                                  "price": {
+                                    "type": "number"
+                                  },
+                                  "season": {
+                                    "type": "string"
+                                  },
+                                  "year": {
+                                    "type": "number"
+                                  },
+                                  "img": {
+                                    "type": "string"
+                                  },
+                                  "created": {
+                                    "type": "string", "format": "date-time"
+                                  },
+                                  "modified": {
+                                    "type": "string", "format": "date-time"
+                                  }
+                                },
+                                "example": {
+                                  "_id": "6089723e6645d4580896302f",
+                                  "artnumber": "a00001",
+                                  "category": "överdelar",
+                                  "name": "Klänning",
+                                  "desc":"Snygg klänning utan armar i 100% bumull",
+                                  "price":49.9,
+                                  "season":"summer",
+                                  "year":2021,
+                                  "img":"a00001.jpg",
+                                  "created":"2021-04-28T14:33:34.695+00:00",
+                                  "modified":"2021-04-28T14:33:34.695+00:00"
+
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "500":{
+                        "description": "Problem whis server",
+                        "content": {
+
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":500,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      }
+                }
+               
+
+                }
+            },
+        
+        "/api/products/{id}":{
+            "get":{
+                "description":"Get one product by id", 
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"id",
+                        "description": "Product id",
+                        "required": true,
+                        "schema":{
+                            "type":"string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "Successfully fetched Product from API Butique",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "_id": "6089723e6645d4580896302f",
+                                        "artnumber": "a00001",
+                                        "category": "överdelar",
+                                        "name": "Klänning",
+                                        "desc":"Snygg klänning utan armar i 100% bumull",
+                                        "price":49.9,
+                                        "season":"summer",
+                                        "year":2021,
+                                        "img":"a00001.jpg",
+                                        "created":"2021-04-28T14:33:34.695+00:00",
+                                        "modified":"2021-04-28T14:33:34.695+00:00"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+
+                    "404":{
+                        "description": "Product with this id not found",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":404,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+
+
+                    "500":{
+                        "description": "Problem whis server",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":500,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      }
+
+                }
+            }
+        },
+        "/api/products/edit/new":{
+            "post":{
+                "description": "Product to add to Butique",
+                "requestBody":{
+                            
+                "content": {
+                        "application/json":{
+                            "schema":{
+                                
+                                "type": "object",
+                                "properties": {
+                                    "artnumber": {"type": "string"},
+                                    "category": {"type": "string"},
+                                    "name": {"type": "string"},
+                                    "desc": {"type": "string"},
+                                    "price": {"type": "number"},
+                                    "season": {"type": "string"},
+                                    "year": {"type": "number"},
+                                    "img": {"type": "string"}
+                               
+                            }
+                            
+                        }
+                    }
+                }
+                   
+                },
+           
+             
+                "responses": {
+                    "401":{
+                        "description": "User not authorized "
+                      },
+                      "201":{
+                        "description": "Product created successfully",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":201,
+                                        "status":true,
+                                        "message":"Product created successfully"
+                                    }
+
+                                }
+                            }
+                        }
+                      }, 
+                    "409":{
+                        "description": "Product already exists",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":409,
+                                        "status":false,
+                                        "message":"Product with this artnumber already exists"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+
+                     
+
+                      "400":{
+                        "description": "Product is not created, problem on client side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":400,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                     
+                      "500":{
+                        "description": "Product is not created, problem on server side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":500,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      }
+                }
+            }
+
+        },
+        "/api/products/edit/load/{fileName}":{
+            "post":{
+                "description":"Load products to api Butique from json file", 
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"fileName",
+                        "description": "Filename of json file with data to upload",
+                        "required": true,
+                        "example":"testdata.json"
+                    }
+                ],
+                "responses": {
+                    "401":{
+                        "description": "User not authorized "
+                      },
+                    "200":{
+                        "description": "Products are loaded from file successfully",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":200,
+                                        "status":true,
+                                        "message":"Total n products appended"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "400":{
+                        "description": "Products are not loaded, problem on client side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":400,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "500":{
+                        "description": "Products are not created, problem on server side or file not exists",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":500,
+                                        "status":false,
+                                        "message":"File fileName not exists or not correct"
+                                    }
+
+                                }
+                            }
+                        }
+                      }
+                }
+            }
+        },
+        "/api/products/edit/{id}":{
+            "post":{
+                "description":"Update product by id", 
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"id",
+                        "description": "Product id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401":{
+                        "description": "User not authorized "
+                      },
+                    "200":{
+                        "description": "Product updated successfully",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":200,
+                                        "status":true,
+                                        "message":"Total n products modified"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "404":{
+                        "description": "Product is not modified, problem on client side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":404,
+                                        "status":false,
+                                        "message":"Total 0 products modified"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "500":{
+                        "description": "Product is not modified, problem on server side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":500,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      }
+
+                }
+            },
+            "delete":{
+                "description":"Delete one product by id", 
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"id",
+                        "description": "Product id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "401":{
+                        "description": "User not authorized "
+                      },
+                    "200":{
+                        "description": "Product deleted från api Butique",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":200,
+                                        "status":true,
+                                        "message":"Product deleted successfully"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "400":{
+                        "description": "Product is not deleted, problem on client side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":400,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "500":{
+                        "description": "Product is not created, problem on server side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":500,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      }
+                }
+            }
+        },
+        "/api/products/edit/delete/all":{
+            "delete":{
+                "description":"Delete all products from api Butique", 
+                "responses": {
+                    "401":{
+                        "description": "User not authorized "
+                      },
+                    "200":{
+                        "description": "All products deleted",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":200,
+                                        "status":true,
+                                        "message":"Total n products deleted"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "400":{
+                        "description": "Products are not deleted, problem on client side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":400,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "500":{
+                        "description": "Products are not deleted, problem on server side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":500,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      }  
+                }
+            } 
+        },
+
+        "/api/auth/signup":{
+            "post":{
+                "description":"User sign up to api Butique", 
+                "requestBody":{
+                            
+                    "content": {
+                            "application/json":{
+                                "schema":{
+                                    
+                                    "type": "object",
+                                    "properties": {
+                                        "firstName": {"type": "string"},
+                                        "lastName:": {"type": "string"},
+                                        "email": {"type": "string"},
+                                        "password": {"type": "string"}
+                                                                           
+                                }
+                                
+                            }
+                        }
+                    }
+                       
+                    },
+
+
+                   "responses": {
+                    "201":{
+                        "description": "User signed up successfully"
+                    } ,
+                    "400":{
+                        "description": "Enable to signed up, problem on client side"
+                    } ,
+                    "409":{
+                        "description": "Enable to signed up, user alredy exists in api Butique",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":409,
+                                        "status":false,
+                                        "message":"user already exists"
+                                    }
+
+                                }
+                            }
+                        }
+                    } ,
+                    "500":{
+                        "description": "Enable to signed up, problem on server side"
+                    } 
+                }
+            } 
+        },
+        "/api/auth/signin":{
+            "post":{
+                "description":"User sign in to api Butique", 
+                "requestBody":{
+                            
+                    "content": {
+                            "application/json":{
+                                "schema":{
+                                    
+                                    "type": "object",
+                                    "properties": {
+                                        "email": {"type": "string"},
+                                        "password": {"type": "string"}
+                                                                           
+                                }
+                                
+                            }
+                        }
+                    }
+                       
+                    },
+
+
+                "responses": {
+                    "200":{
+                        "description": "User signed in successfully, return JWT-token",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"string"
+                                    
+                                }
+                            }
+                        }
+                    } ,
+                    "400":{
+                        "description": "Enable to sign in, problem on client side"
+                    } ,
+                    "500":{
+                        "description": "Enable to sign in, problem on server side "
+                    } 
+                }
+            } 
+        }
+    }
+  }

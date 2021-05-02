@@ -1,0 +1,103 @@
+[{
+    "artnumber":"a00001",
+    "category":"överdelar",
+    "name":"Klänning",
+    "desc":"Snygg klänning utan armar i 100% bumull",
+    "price": 49.90,
+    "season":"summer",
+    "year":2021,
+    "img":"a00001.jpg"
+
+},
+{
+    "artnumber":"a00002",
+    "category":"överdelar",
+    "name":"Tshirt",
+    "desc":"Tshirt i 100% bummul",
+    "price":99,
+    "season":"summer",
+    "year":2021,
+    "img":"a00002.jpg"
+
+},
+{
+    "artnumber":"a00003",
+    "category":"nedredelar",
+    "name":"Kjol",
+    "desc":"Blummig kjol i bumullsblandning med resorband i midia",
+    "price":149,
+    "season":"summer",
+    "year":2021,
+    "img":"a00003.jpg"
+
+},
+{
+    "artnumber":"a00004",
+    "category":"överdelar",
+    "name":"Kofta",
+    "desc":"Vit kofta i bomullsblandning",
+    "price":179,
+    "season":"summer",
+    "year":2021,
+    "img":"a00004.jpg"
+},
+{
+    "artnumber":"a00005",
+    "category":"nedredelar",
+    "name":"Leggins",
+    "desc":"Ljusblå denimlegging med brodering",
+    "season":"summer",
+    "year":2021,
+    "price":179,
+    "img":"a00005.jpg"
+},
+{
+    "artnumber":"a00006",
+    "category":"nedredelar",
+    "name":"Leggins",
+    "desc":"Tunna bomulleggins, 3-pack",
+    "season":"summer",
+    "year":2021,
+    "price":199,
+    "img":"a00006.jpg"
+},
+{
+    "artnumber":"a00007",
+    "category":"överdelar",
+    "name":"Klänning",
+    "desc":"Klänning i bumull med kortarm",
+    "season":"summer",
+    "year":2021,
+    "price":129,
+    "img":"a00007.jpg"
+},
+{
+    "artnumber":"a00008",
+    "category":"swimwear",
+    "name":"Baddräkt",
+    "desc":"Mönstrad baddräkt",
+    "season":"summer",
+    "year":2021,
+    "price":99,
+    "img":"a00008.jpg"
+},
+{
+    "artnumber":"a00009",
+    "category":"swimwear",
+    "name":"Badset",
+    "desc":"Badset med UPF50",
+    "season":"summer",
+    "year":2021,
+    "price":199,
+    "img":"a00009.jpg"
+},
+{
+    "artnumber":"a00010",
+    "category":"sleepwear",
+    "name":"Morgonrock",
+    "desc":"Morgonrock med huva",
+    "price":249,
+    "season":"summer",
+    "year":2021,
+    "img":"a00010.jpg"
+}]
