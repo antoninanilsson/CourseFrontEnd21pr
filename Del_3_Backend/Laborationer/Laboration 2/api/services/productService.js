@@ -24,7 +24,18 @@ exports.getAll = (req, res) => {
 exports.getOne = (req, res) => {
     try {
         Product.findOne({ _id: req.params.id })
-            .then(data => res.status(200).json(data))
+            .then(data => {
+                if (data === null)
+                return res.status(404).json({
+                    statusCode: 404,
+                    status: false,
+                    message: "Product with this id not exists"
+
+                    })
+                else 
+                return res.status(200).json(data);          
+
+                })
             .catch((err) => res.status(404).json({
                 statusCode: 404,
                 status: false,
@@ -39,7 +50,7 @@ exports.getOne = (req, res) => {
         })
     }
 }
-// säker artikel nummer
+// söker artikel nummer
 exports.create = (req, res) => {
     try {
         Product.findOne({ artnumber: req.body.artnumber })
@@ -92,7 +103,14 @@ exports.create = (req, res) => {
     }
 }
 
-exports.deleteOne = (req, res) => {
+exports.deleteProduct = (req,res) =>{
+        if (req.params.id==='all')
+            deleteAll(req, res);
+        else
+            deleteOne(req, res) ;
+
+}
+deleteOne = (req, res) => {
     try {
         Product.deleteOne({ _id: req.params.id })
             .then(() => res.status(200).json({
@@ -116,7 +134,7 @@ exports.deleteOne = (req, res) => {
 }
 
 
-exports.deleteAll = (req, res) => {
+deleteAll = (req, res) => {
     try {
         Product.deleteMany({})
             .then((data) => res.status(200).json({

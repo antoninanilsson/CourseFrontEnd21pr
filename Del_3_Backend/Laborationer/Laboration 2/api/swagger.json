@@ -4,13 +4,28 @@
     "info": {
       "title": "API Butique (Laboration 2)",
       "description": "API for Children Closes On-Line Butique",
-      "version": "0.0.1"
+      "version": "0.0.2"
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth" :{
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "description": "JWT Authenification"
+            }
+        },
+        "responses": {
+            "UnauthorizedError":{
+                "description": "Unauthorized"
+            }
+        }
     },
    
-    "paths": {
+    "paths": { 
         "/api/products":{
             "get":{
-                "description":"List all products", 
+                "description":"List all Products in Butique", 
                 "responses": {
                     "200": {
                         "description": "Successfully fetched all products from API Butique",
@@ -94,7 +109,114 @@
                 }
                
 
-                }
+                },
+            "post":{
+                    "security": [
+                        {"bearerAuth":[]}
+                    ],
+                    "description": "Add one Product to Butique",
+                    "requestBody":{
+                                
+                    "content": {
+                            "application/json":{
+                                "schema":{
+                                    
+                                    "type": "object",
+                                    "properties": {
+                                        "artnumber": {"type": "string"},
+                                        "category": {"type": "string"},
+                                        "name": {"type": "string"},
+                                        "desc": {"type": "string"},
+                                        "price": {"type": "number"},
+                                        "season": {"type": "string"},
+                                        "year": {"type": "number"},
+                                        "img": {"type": "string"}
+                                   
+                                }
+                                
+                            }
+                        }
+                    }
+                       
+                    },
+               
+                 
+                    "responses": {
+                        "401":{
+                            "$ref":"#/components/responses/UnauthorizedError"
+                            
+                          },
+                          "201":{
+                            "description": "Product created successfully",
+                            "content": {
+                                "application/json":{
+                                    "schema":{
+                                        "type":"object",
+                                        "example":{
+                                            "statusCode":201,
+                                            "status":true,
+                                            "message":"Product created successfully"
+                                        }
+    
+                                    }
+                                }
+                            }
+                          }, 
+                        "409":{
+                            "description": "Product already exists",
+                            "content": {
+                                "application/json":{
+                                    "schema":{
+                                        "type":"object",
+                                        "example":{
+                                            "statusCode":409,
+                                            "status":false,
+                                            "message":"Product with this artnumber already exists"
+                                        }
+    
+                                    }
+                                }
+                            }
+                          },
+    
+                         
+    
+                          "400":{
+                            "description": "Product is not created, problem on client side",
+                            "content": {
+                                "application/json":{
+                                    "schema":{
+                                        "type":"object",
+                                        "example":{
+                                            "statusCode":400,
+                                            "status":false,
+                                            "message":"Error message"
+                                        }
+    
+                                    }
+                                }
+                            }
+                          },
+                         
+                          "500":{
+                            "description": "Product is not created, problem on server side",
+                            "content": {
+                                "application/json":{
+                                    "schema":{
+                                        "type":"object",
+                                        "example":{
+                                            "statusCode":500,
+                                            "status":false,
+                                            "message":"Error message"
+                                        }
+    
+                                    }
+                                }
+                            }
+                          }
+                    }
+                }    
+
             },
         
         "/api/products/{id}":{
@@ -173,183 +295,13 @@
                       }
 
                 }
-            }
-        },
-        "/api/products/edit/new":{
-            "post":{
-                "description": "Product to add to Butique",
-                "requestBody":{
-                            
-                "content": {
-                        "application/json":{
-                            "schema":{
-                                
-                                "type": "object",
-                                "properties": {
-                                    "artnumber": {"type": "string"},
-                                    "category": {"type": "string"},
-                                    "name": {"type": "string"},
-                                    "desc": {"type": "string"},
-                                    "price": {"type": "number"},
-                                    "season": {"type": "string"},
-                                    "year": {"type": "number"},
-                                    "img": {"type": "string"}
-                               
-                            }
-                            
-                        }
-                    }
-                }
-                   
-                },
-           
-             
-                "responses": {
-                    "401":{
-                        "description": "User not authorized "
-                      },
-                      "201":{
-                        "description": "Product created successfully",
-                        "content": {
-                            "application/json":{
-                                "schema":{
-                                    "type":"object",
-                                    "example":{
-                                        "statusCode":201,
-                                        "status":true,
-                                        "message":"Product created successfully"
-                                    }
+            },
 
-                                }
-                            }
-                        }
-                      }, 
-                    "409":{
-                        "description": "Product already exists",
-                        "content": {
-                            "application/json":{
-                                "schema":{
-                                    "type":"object",
-                                    "example":{
-                                        "statusCode":409,
-                                        "status":false,
-                                        "message":"Product with this artnumber already exists"
-                                    }
-
-                                }
-                            }
-                        }
-                      },
-
-                     
-
-                      "400":{
-                        "description": "Product is not created, problem on client side",
-                        "content": {
-                            "application/json":{
-                                "schema":{
-                                    "type":"object",
-                                    "example":{
-                                        "statusCode":400,
-                                        "status":false,
-                                        "message":"Error message"
-                                    }
-
-                                }
-                            }
-                        }
-                      },
-                     
-                      "500":{
-                        "description": "Product is not created, problem on server side",
-                        "content": {
-                            "application/json":{
-                                "schema":{
-                                    "type":"object",
-                                    "example":{
-                                        "statusCode":500,
-                                        "status":false,
-                                        "message":"Error message"
-                                    }
-
-                                }
-                            }
-                        }
-                      }
-                }
-            }
-
-        },
-        "/api/products/edit/load/{fileName}":{
-            "post":{
-                "description":"Load products to api Butique from json file", 
-                "parameters":[
-                    {
-                        "in":"path",
-                        "name":"fileName",
-                        "description": "Filename of json file with data to upload",
-                        "required": true,
-                        "example":"testdata.json"
-                    }
+            "patch":{
+                "security": [
+                    {"bearerAuth":[]}
                 ],
-                "responses": {
-                    "401":{
-                        "description": "User not authorized "
-                      },
-                    "200":{
-                        "description": "Products are loaded from file successfully",
-                        "content": {
-                            "application/json":{
-                                "schema":{
-                                    "type":"object",
-                                    "example":{
-                                        "statusCode":200,
-                                        "status":true,
-                                        "message":"Total n products appended"
-                                    }
-
-                                }
-                            }
-                        }
-                      },
-                      "400":{
-                        "description": "Products are not loaded, problem on client side",
-                        "content": {
-                            "application/json":{
-                                "schema":{
-                                    "type":"object",
-                                    "example":{
-                                        "statusCode":400,
-                                        "status":false,
-                                        "message":"Error message"
-                                    }
-
-                                }
-                            }
-                        }
-                      },
-                      "500":{
-                        "description": "Products are not created, problem on server side or file not exists",
-                        "content": {
-                            "application/json":{
-                                "schema":{
-                                    "type":"object",
-                                    "example":{
-                                        "statusCode":500,
-                                        "status":false,
-                                        "message":"File fileName not exists or not correct"
-                                    }
-
-                                }
-                            }
-                        }
-                      }
-                }
-            }
-        },
-        "/api/products/edit/{id}":{
-            "post":{
-                "description":"Update product by id", 
+                "description":"Update one Product by id", 
                 "parameters":[
                     {
                         "in":"path",
@@ -360,7 +312,8 @@
                 ],
                 "responses": {
                     "401":{
-                        "description": "User not authorized "
+                        "$ref":"#/components/responses/UnauthorizedError"
+                        
                       },
                     "200":{
                         "description": "Product updated successfully",
@@ -414,6 +367,9 @@
                 }
             },
             "delete":{
+                "security": [
+                    {"bearerAuth":[]}
+                ],
                 "description":"Delete one product by id", 
                 "parameters":[
                     {
@@ -425,7 +381,7 @@
                 ],
                 "responses": {
                     "401":{
-                        "description": "User not authorized "
+                        "$ref":"#/components/responses/UnauthorizedError"
                       },
                     "200":{
                         "description": "Product deleted från api Butique",
@@ -477,13 +433,89 @@
                       }
                 }
             }
+
+
         },
-        "/api/products/edit/delete/all":{
-            "delete":{
-                "description":"Delete all products from api Butique", 
+        
+        "/api/products/{fileName}":{
+            "post":{
+                "security": [
+                    {"bearerAuth":[]}
+                ],
+                "description":"Load products to api Butique from json file", 
+                "parameters":[
+                    {
+                        "in":"path",
+                        "name":"fileName",
+                        "description": "Filename of json file with data to upload",
+                        "required": true,
+                        "example":"testdata.json"
+                    }
+                ],
                 "responses": {
                     "401":{
-                        "description": "User not authorized "
+                        "$ref":"#/components/responses/UnauthorizedError"
+                      },
+                    "200":{
+                        "description": "Products are loaded from file successfully",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":200,
+                                        "status":true,
+                                        "message":"Total n products appended"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "400":{
+                        "description": "Products are not loaded, problem on client side",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":400,
+                                        "status":false,
+                                        "message":"Error message"
+                                    }
+
+                                }
+                            }
+                        }
+                      },
+                      "500":{
+                        "description": "Products are not created, problem on server side or file not exists",
+                        "content": {
+                            "application/json":{
+                                "schema":{
+                                    "type":"object",
+                                    "example":{
+                                        "statusCode":500,
+                                        "status":false,
+                                        "message":"File fileName not exists or not correct"
+                                    }
+
+                                }
+                            }
+                        }
+                      }
+                }
+            }
+        },
+        "/api/products/all":{
+            "delete":{
+                "security": [
+                    {"bearerAuth":[]}
+                ],
+                "description":"Delete all Products from api Butique", 
+                "responses": {
+                    "401":{
+                        "$ref":"#/components/responses/UnauthorizedError"
                       },
                     "200":{
                         "description": "All products deleted",
@@ -549,7 +581,7 @@
                                     "type": "object",
                                     "properties": {
                                         "firstName": {"type": "string"},
-                                        "lastName:": {"type": "string"},
+                                        "lastName": {"type": "string"},
                                         "email": {"type": "string"},
                                         "password": {"type": "string"}
                                                                            

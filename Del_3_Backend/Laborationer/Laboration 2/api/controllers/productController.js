@@ -11,13 +11,15 @@ route.get('/:id', productService.getOne)
 
 
 //route.post('/edit/new',  authService.requireAuth, productService.create)
-route.post('/edit/new',  productService.create)
-route.post('/edit/load/:fileName',  authService.requireAuth, productService.loadData)
+route.post('/', authService.requireAuth, productService.create)
+route.post('/:fileName',  authService.requireAuth, productService.loadData)
 
-route.patch('/edit/:id',  authService.requireAuth,productService.update);
+route.patch('/:id',  authService.requireAuth,productService.update);
 
-route.delete('/edit/:id',  authService.requireAuth, productService.deleteOne)
-route.delete('/edit/delete/all', authService.requireAuth,  productService.deleteAll)
+// id för ta bort ett produkt och 'all' för ta bort alla produkter 
+route.delete('/:id',  authService.requireAuth, productService.deleteProduct)
+
+
 
 
 
