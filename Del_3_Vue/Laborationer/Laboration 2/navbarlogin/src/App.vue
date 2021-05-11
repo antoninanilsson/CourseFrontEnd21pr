@@ -1,7 +1,7 @@
 <template>
   <div >
     <Navbar :user="user" @signOut="handleSignOut" />
-    <FormSignin v-if="!user.signedIn" @signIn="handleSignIn" :errorMsgSignIn="errorMsgSignIn"/>
+    <FormSignin v-if="!user.signedIn" @signIn="handleSignIn" :errorMsgSignIn="errorMsgSignIn" @error-sign-in="errorMsgSignIn=arguments[0]"  />
     </div>
 </template>
 

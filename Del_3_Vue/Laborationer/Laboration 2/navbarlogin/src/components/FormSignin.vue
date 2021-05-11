@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-5">
-  <form class="col-md-6 col-xl-4 mx-auto" @submit.prevent="handleSubmit()" @click="errorMsgSignIn=''">
+  <form class="col-md-6 col-xl-4 mx-auto" @submit.prevent="handleSubmit()" @click="$emit('error-sign-in','')">
         <div class="text-danger" >{{errorMsgSignIn}}</div>
   <!-- <div class="row justify-content-center"> -->
         <div class="mb-3 ">
@@ -31,6 +31,7 @@ export default {
         return{
             email:'',
             password:'',
+           
             
         }
     },

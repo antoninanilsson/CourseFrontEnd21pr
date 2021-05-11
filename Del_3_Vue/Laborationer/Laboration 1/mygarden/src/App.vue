@@ -4,6 +4,9 @@
     <div class="container">
        
        <Alert :class="{'d-none':!alertVisible}" @btnCloseAlert="closeAlert" :alertText=alertText />
+       <!-- Andra varianter: -->
+       <!-- <Alert v-if="alertVisible" @btnCloseAlert="closeAlert" :alertText=alertText />
+       <Alert v-show="alertVisible" @btnCloseAlert="closeAlert" :alertText=alertText /> -->
        <Hero  @btnClick="clickedComp" :enterpriseName=enterpriseName />
     </div>
     

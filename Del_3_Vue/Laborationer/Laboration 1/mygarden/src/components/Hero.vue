@@ -5,7 +5,8 @@
     <p class="lead">Här kan Du lära dig om trägårdväxter Du kan plantera i Norra Sverige (zon 6-7).</p>
     <hr class="my-4 ">
     <p>Massor med praktiska tips och bilder. Visst recepter av goda maträtter från lokalodlade grönsaker och frukt</p>
-    <button type="button" class="btn btn-success btn-lg " @click="$emit('btnClick','ReadMore','Hero')">Läs mer ...</button>
+    <!-- <button type="button" class="btn btn-success btn-lg " @click="$emit('btnClick','ReadMore','Hero')">Läs mer ...</button> -->
+    <button type="button" class="btn btn-success btn-lg " ref="btnReadMore"  @click="$emit('btnClick',$refs.btnReadMore.innerText, $options.name)">Läs mer ...</button>
 </div>
 
   
