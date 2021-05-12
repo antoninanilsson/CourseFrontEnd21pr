@@ -3,7 +3,7 @@ const cityName=document.querySelector('#cityName');
 const errorMessage=document.querySelector('#errorMessage');
 const actualWeather=document.querySelector('#actualWeather')
 
-const weatherAPIkey='76502b89d7d6cf0375da16b9de9ff675';
+const weatherAPIkey='';
 
 
 // visa eller ta bort felmeddelande
