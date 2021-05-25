@@ -54,7 +54,7 @@ export default {
   },
   computed : {
       filteredPosts() {
-         return this.blogPosts.filter(post => post.title.match(this.search))
+         return this.blogPosts.filter(post => post.title.toUpperCase().match(this.search.toUpperCase()))
     }
   },
  created () {

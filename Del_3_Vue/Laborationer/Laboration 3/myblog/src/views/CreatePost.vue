@@ -7,20 +7,21 @@
         <h4 class="text-center">Skapa ett nytt blogginlägg</h4>
         <div class="mb-3">
           <label for="postTitle" class="form-label">Titel</label>
-          <input type="text" class="form-control" id="postTitle"  v-model="blogPost.title">
+
+          <input type="text" :class="[blogPost.title || !isDirty?'':'is-invalid', 'form-control']" id="postTitle"  v-model="blogPost.title">
           <p class="invalid-feedback">Ange inläggets namn</p>
          
         </div>
 
         <div class="mb-3">
           <label for="postContent" class="form-label">Inlägg</label>
-          <textarea  class="form-control" id="postContent" v-model="blogPost.body"></textarea>
+          <textarea  :class="[blogPost.body || !isDirty?'':'is-invalid', 'form-control']" id="postContent" v-model="blogPost.body"></textarea>
           <p class="invalid-feedback">Skriv något text</p>
         </div>
 
         <div class="mb-3">
         <label for="postUser">Författare</label>
-        <select id="postUser" class="form-select" v-model="blogPost.userId">
+        <select id="postUser" :class="[blogPost.userId || !isDirty?'':'is-invalid','form-select']" v-model="blogPost.userId">
           <option value="" disabled selected></option>
           <option v-for="user in users" :key="user.id" :value="user.id">{{ user.name }}</option>
         </select>
@@ -54,7 +55,8 @@ export default {
       },
       users:[],
       inputError:false,
-      showAlert:false
+      showAlert:false,
+      isDirty:false
       
     }
   },
@@ -65,36 +67,23 @@ export default {
                userId: 0,
                title: '',
                body: '',
-               userName:''}
-    },
-  
+               userName:''},
+      this.isDirty=false         
+    }, 
+      
+     create() { 
 
-     create(e) {
-      
-      
         if (this.blogPost.title !== '' && this.blogPost.content !== '' && this.blogPost.userId!='') {
             this.postPost(this.blogPost)
-            e.target.forEach(t => t.classList.remove('is-invalid'))
             this.resetBlogPost()
-           
-        
-        } else {
-             e.target.forEach(t => {
-               if(t.value == '') {
-               t.classList.add('is-invalid')
-              } else {
-                t.classList.remove('is-invalid')
-              }
-            })
-        }
 
+         }
    },
-   resetForm(e){
-    
+  
+
+     resetForm() {
       this.resetBlogPost()
-      e.target.forEach(t => {           
-                t.classList.remove('is-invalid')
-              })
+
  
    },
 
@@ -130,6 +119,17 @@ export default {
     }
  },
 
+ watch:{ 
+     blogPost: {
+     immediate:true,  
+     handler(newValue){
+     if (newValue.title || newValue.body || newValue.userId)
+            this.isDirty=true
+          
+     },
+     deep: true
+      }
+   },
   
  
  created () {
