@@ -1,0 +1,10 @@
+.book-row .bi-heart,.bi-heart-fill {
+    color:red;
+}
+.book-row .bi-heart:hover,.bi-heart-fill:hover {
+    color: rgb(92, 0, 0);
+    
+}
+.book-row.liked {
+    background-color: seashell;
+} 
