@@ -37,7 +37,7 @@ const BookRow = ({book, addBookLike,deleteBookLike, isBookLiked}) => {
                     
            </div>
            <div className="card-footer bg-body">
-            <ul className="list-group list-group-horizontal align-items-center ">
+            <ul className="list-group list-group-horizontal-md align-items-center ">
               { isBookLiked(book.id) ? 
                     (<li className="list-group-item flex-fill border-0" onClick={handleDelete}><i className="bi bi-heart-fill fs-3 " /></li>):
                     (<li className="list-group-item flex-fill border-0" onClick={handleAdd}><i className="bi bi-heart fs-3 " /></li>)
