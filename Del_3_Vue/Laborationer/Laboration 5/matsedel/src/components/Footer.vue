@@ -1,6 +1,6 @@
 <template>
   
-<footer class="navbar fixed-bottom navbar-light bg-light">
+<footer :class="['navbar', 'fixed-bottom','mt-5', themaLight ? 'navbar-light bg-light' :'navbar-dark bg-success']">
   <div class="container-fluid">
     <div id="edamam-badge" data-color="white"></div>
   </div>
@@ -8,8 +8,12 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-    name:'Footer'
+    name:'Footer',
+     computed :{
+    ...mapGetters(['themaLight'])
+  },
 
 }
 </script>

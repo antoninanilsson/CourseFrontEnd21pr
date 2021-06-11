@@ -4,8 +4,6 @@ import Home from '../views/Home.vue'
 import WeekMenu from '../views/WeekMenu'
 import Meals from '../views/Meals'
 import Ingredients from '../views/Ingredients'
-import SearchMeals from '../views/SearchMeals'
-
 
 
 Vue.use(VueRouter)
@@ -16,11 +14,7 @@ const routes = [
     name: 'Home',
     component: Home
   },
-  {
-    path: '/search',
-    name: 'SearchMeals',
-    component: SearchMeals
-  },
+  
   {
     path: '/meals',
     name: 'Meals',

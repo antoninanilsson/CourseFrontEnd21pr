@@ -9,24 +9,26 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    apiId : process.env.VUE_APP_API_IDST,
+    apiId : process.env.VUE_APP_API_ID,
     apiUrl :  process.env.VUE_APP_API_URL,
     apiKey :  process.env.VUE_APP_API_KEY,
-    apiThema : process.env.VUE_APP_THEMA
+    themaLight :true
 
   },
   getters : {
     apiId : state =>state.apiId,
     apiUrl : state => state.apiUrl,
     apiKey: state => state.apiKey,
-    apiThema : state => state.apiThema ,
+    themaLight : state => state.themaLight ,
     apiImgUri:state=>state.apiImgUri
 
 
   },
   mutations: {
+    CHANGE_THEMA:(state)=>state.themaLight=!state.themaLight
   },
   actions: {
+    changeThema : ({commit})=>{ commit('CHANGE_THEMA')},
   },
   modules: {
     mealsModule,

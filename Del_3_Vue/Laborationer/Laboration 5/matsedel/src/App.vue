@@ -1,7 +1,7 @@
 <template>
   <div id="app">
      <Navbar />   
-    <div class="container mt-2">
+    <div class="container pb-5 mb-5">
          <router-view/> 
     </div>  
     <Footer />
@@ -32,6 +32,9 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  height: 100%;
 }
 
 
